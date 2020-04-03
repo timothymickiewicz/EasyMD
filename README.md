@@ -1,1 +1,0 @@
-<h1>ReadMe Generator</h1></br><h2>Description</h2></br>This makes readmes</br><h2>Installation</h2></br>Clone from my github, then copy to your desktop and do whatever you wanna do, idk just do something</br><h2>Use</h2></br>to make readmes<h2>Licensing</h2></br>MIT<h2>Contributors</h2></br>Timothy Mickiewicz
