@@ -48,16 +48,15 @@ inquirer
         .get(queryUrl)
         .then(function(res) {
 
-            const content = `
-            ${user.title}
-            ${user.description}
-            ${user.install}
-            ${user.usage}
-            ${user.license}
-            ${user.contributors}
-            Questions?`
+            const content = `<h1>${user.title}<h1></br><h2>Description</h2></br>${user.description}</br><h2>Installation</h2></br>${user.install}</br><h2>Use</h2></br>${user.usage}<h2>Licensing</h2></br>${user.license}<h2>Contributors</h2></br>${user.contributors}`
             
-            fs.writeFile("README.md", content + '\r\n', err => {
+            // var stream = fs.createWriteStream("README.md");
+            // stream.on('error', console.error);
+            // content.forEach((str) => { 
+            //     stream.write(str + '\n'); 
+            // });
+            // stream.end();
+            fs.writeFileSync("README.md", content, err => {
                 if (err) {
                     console.error(err)
                     return
