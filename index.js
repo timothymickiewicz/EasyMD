@@ -43,35 +43,28 @@ inquirer
     ])
     .then(function(user) {
         console.log(user);
-        const queryUrl = `https://api.github.com/users/${user.username}`
-        axios
-        .get(queryUrl)
-        .then(function(res) {
-            console.log(res);
-            // This is all of my content that is being written to the readme file, written in template literal format
-            const content = `<h1>${user.title}</h1></br>,<h2>Description</h2></br>,${user.description},<h2>Installation</h2></br>,${user.install},<h2>Use</h2></br>,${user.usage},<h2>Licensing</h2></br>,${user.license},<h2>Contributors</h2></br>,${user.contributors},<h2>Github</h2></br>,![Github Profile Picture](${res.data.avatar_url})`
+        const queryUrl = `https://api.github.com/users/${user.username}`;
+            axios
+            .get(queryUrl, {
+                headers: {
+                    "Authorization": "token f40c073d400491f0b6fb5f5c574540cc0f09fa70"
+                }
+            })
+            .then(function(res) {
+                console.log(res);
+                // This is all of my content that is being written to the readme file, written in template literal format
+                const content = `<h1>${user.title}</h1></br>,<h2>Description</h2></br>,${user.description},<h2>Installation</h2></br>,${user.install},<h2>Use</h2></br>,${user.usage},<h2>Licensing</h2></br>,${user.license},<h2>Contributors</h2></br>,${user.contributors},<h2>Github</h2></br>,![Github Profile Picture](${res.data.avatar_url})</br>,${res.data.email}`
 
-            // Splitting my content for the sake of clean code on the readme file
-            const splitContent = content.split(',');
+                // Splitting my content for the sake of clean code on the readme file
+                const splitContent = content.split(',');
 
-            // This uses a for each loop on my split content to put the information on a stream that writes to the new md file. This prevents some data from being lost through the writeFile function as it is asynchronous.
-            var stream = fs.createWriteStream("README.md");
-            stream.on('error', console.error);
-            splitContent.forEach((str) => { 
-                stream.write(str + '\n'); 
-            });
-            stream.end();
-            // fs.writeFileSync("README.md", content, err => {
-            //     if (err) {
-            //         console.error(err)
-            //         return
-            //     }
-            // });
-        });
-        const queryUrlEmail = `https://api.github.com/user/${user.username}`
-        axios
-        .get(queryUrlEmail)
-        .then(function(res2) {
-            console.log(res2);
-        });
+                // This uses a for each loop on my split content to put the information on a stream that writes to the new md file. This prevents the potential for some data being lost through the writeFile function as it is asynchronous (according to stack overflow).
+                var stream = fs.createWriteStream("README.md");
+                stream.on('error', console.error);
+                splitContent.forEach((str) => { 
+                    stream.write(str + '\n'); 
+                });
+                stream.end();
+            })
+            .catch(error => console.error(error))
     });
