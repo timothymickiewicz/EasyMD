@@ -47,7 +47,7 @@ inquirer
             axios
             .get(queryUrl, {
                 headers: {
-                    "Authorization": "token f40c073d400491f0b6fb5f5c574540cc0f09fa70"
+                    "Authorization": `token ${process.env.name_value}`
                 }
             })
             .then(function(res) {
