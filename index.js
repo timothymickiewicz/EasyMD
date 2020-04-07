@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const axios = require("axios");
 const fs = require("fs");
+require("dotenv").config()
+const token = process.env.TOKEN;
 
 inquirer
     .prompt([
@@ -42,12 +44,13 @@ inquirer
         },
     ])
     .then(function(user) {
+        console.log(process.env.name_value);
         console.log(user);
         const queryUrl = `https://api.github.com/users/${user.username}`;
             axios
             .get(queryUrl, {
                 headers: {
-                    "Authorization": `token ${process.env.name_value}`
+                    "Authorization": `token ${token}`
                 }
             })
             .then(function(res) {
