@@ -1,0 +1,32 @@
+{
+  "name": "readmegenerator",
+  "version": "1.0.0",
+  "description": "This is a file to generate a readme based off of user inputs in the terminal. Run the program by opening terminal and entering 'node index.js'",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "fs": "^0.0.1-security",
+    "inquirer": "^7.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothymickiewicz/readmeGenerator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator",
+    "timothy",
+    "mickiewicz"
+  ],
+  "author": "Timothy Mickiewicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timothymickiewicz/readmeGenerator/issues"
+  },
+  "homepage": "https://github.com/timothymickiewicz/readmeGenerator#readme"
+}
