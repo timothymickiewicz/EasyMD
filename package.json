@@ -1,7 +1,7 @@
 {
-  "name": "readmegenerator",
+  "name": "@tmickiewicz/easymd",
   "version": "1.0.0",
-  "description": "This is a file to generate a readme based off of user inputs in the terminal. Run the program by opening terminal and entering 'node index.js'",
+  "description": "An application to create markdown format READMEs for your applications. ",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
@@ -15,18 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timothymickiewicz/readmeGenerator.git"
+    "url": "(https://github.com/timothymickiewicz/EasyMD.git)"
   },
   "keywords": [
     "readme",
     "generator",
+    "easymd",
+    "easyMD",
     "timothy",
     "mickiewicz"
   ],
   "author": "Timothy Mickiewicz",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/timothymickiewicz/readmeGenerator/issues"
-  },
-  "homepage": "https://github.com/timothymickiewicz/readmeGenerator#readme"
+  "license": "MIT"
 }
