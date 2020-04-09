@@ -3,7 +3,7 @@ const axios = require("axios");
 const fs = require("fs");
 require("dotenv").config()
 const token = process.env.TOKEN;
-
+// Questions that will generate when the user uses the terminal prompt
 inquirer
     .prompt([
         {
@@ -42,6 +42,7 @@ inquirer
             name: "contributors"
         },
     ])
+    // After the questions are answered, an axios call is performed on their username and token value
     .then(function(user) {
         console.log(process.env.name_value);
         console.log(user);
@@ -52,14 +53,15 @@ inquirer
                     "Authorization": `token ${token}`
                 }
             })
+            // After the questions and axios call is done, the content is generated for the readme
             .then(function(res) {
                 console.log(res);
                 // This is all of my content that is being written to the readme file, written in template literal format
                 const runTest = "`npm run test`"; // Nesting `s inside of `s
-                const content = `# ${user.title}, ,## Table of Contents,* [Description](#description),* [Installation](#installation),* [Use](#use),* [Licensing](#licensing),* [Contributors](#contributors),* [Contributing](#contributing),* [Tests](#tests),* [Github](#github), ,## Description,${user.description}, ,## Installation,${user.install}, ,## Use,${user.usage}, ,## Licensing,![Badge](https://img.shields.io/static/v1?label=License&message=${user.license}&color=<COLOR>?style=plastic), ,## Contributors,${user.contributors}, ,## Contributing,[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)</br>,Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.</br>,https://www.contributor-covenant.org/version/2/0/code_of_conduct/, ,## Tests,To run tests you must enter ${runTest} in the terminal, ,## Github,![Github Profile Picture](${res.data.avatar_url})</br>,${res.data.email}`
+                const content = `# ${user.title}--+ --+## Table of Contents--+* [Description](#description)--+* [Installation](#installation)--+* [Use](#use)--+* [Licensing](#licensing)--+* [Contributors](#contributors)--+* [Contributing](#contributing)--+* [Tests](#tests)--+* [Github](#github)--+ --+## Description--+${user.description}--+ --+## Installation--+${user.install}--+ --+## Use--+${user.usage}--+ --+## Licensing--+![Badge](https://img.shields.io/static/v1?label=License&message=${user.license}&color=<COLOR>?style=plastic)--+ --+## Contributors--+${user.contributors}--+ --+## Contributing--+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)</br>--+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.</br>--+https://www.contributor-covenant.org/version/2/0/code_of_conduct/--+ --+## Tests--+To run tests, you must enter ${runTest} in the terminal--+ --+## Github--+![Github Profile Picture](${res.data.avatar_url})</br>--+${res.data.email}`
 
                 // Splitting my content for the sake of clean code on the readme file
-                const splitContent = content.split(',');
+                const splitContent = content.split('--+');
 
                 // This uses a for each loop on my split content to put the information on a stream that writes to the new md file. This prevents the potential for some data being lost through the writeFile function as it is asynchronous (according to stack overflow).
                 var stream = fs.createWriteStream("README.md");
