@@ -1,4 +1,8 @@
 # EasyMD
+
+## Demonstration
+![Gif](media/EasyMD.gif)
+
  
 ## Table of Contents
 * [Description](#description)
@@ -8,8 +12,8 @@
 * [Contributors](#contributors)
 * [Contributing](#contributing)
 * [Tests](#tests)
-* [Github](#github)
- 
+* [Github](#github) 
+
 ## Description
 A JavaScript package to generate a README.md file for your application. This application works from the terminal and presents the user with a series of questions about their application that is used to fill the README.md file.
  
@@ -40,6 +44,6 @@ https://www.contributor-covenant.org/version/2/0/code_of_conduct/
 ## Tests
 To run tests enter `npm run test` in the terminal
  
-## Github
+## Contact
 ![Github Profile Picture](https://avatars3.githubusercontent.com/u/58575568?v=4)</br>
 timothy.mickiewicz@gmail.com
