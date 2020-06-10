@@ -1,7 +1,7 @@
 # EasyMD
 
 ## Demonstration
-![Gif](media/.EasyMD.gif)
+![Gif](media/easyMD.gif)
 
  
 ## Table of Contents
