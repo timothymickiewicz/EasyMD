@@ -4,7 +4,7 @@
   "description": "An application to create markdown format READMEs for your applications. ",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "fs": "^0.0.1-security",
     "inquirer": "^7.1.0"
